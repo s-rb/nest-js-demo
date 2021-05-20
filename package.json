@@ -5,6 +5,10 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
+  "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+  "migration:generate": "yarn run typeorm migration:generate -n",
+  "migration:create": "yarn run typeorm migration:create -n",
+  "migration:run": "yarn run typeorm migration:run",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -24,9 +28,12 @@
     "@nestjs/common": "^7.6.15",
     "@nestjs/core": "^7.6.15",
     "@nestjs/platform-express": "^7.6.15",
+    "@nestjs/typeorm": "^7.1.5",
+    "pg": "^8.6.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.6.6"
+    "rxjs": "^6.6.6",
+    "typeorm": "^0.2.32"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.6.0",

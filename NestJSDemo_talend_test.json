@@ -4,14 +4,95 @@
     {
       "entity": {
         "type": "Project",
-        "id": "3dabdd87-84ea-4953-a639-e630b56b54d3",
-        "name": "Users service project"
+        "id": "6b989b8f-f892-47bd-9897-97dc953435bd",
+        "name": "NestJSDemo"
       },
       "children": [
         {
           "entity": {
             "type": "Service",
-            "id": "ebf77400-08e7-4f94-943c-454b1da5055e",
+            "id": "f6a97cf6-016b-4370-9a64-fbf651668994",
+            "name": "ItemService"
+          },
+          "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "requestBody": true,
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+                  "name": "POST"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"name\":\"trinket\",\n  \"description\":\"whatever\",\n  \"price\": 42.0\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:3000",
+                  "path": "/items"
+                },
+                "id": "bedc0832-7988-4cfd-9dc5-fd4b8b9d6f7a",
+                "name": "CREATE Item",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:3000",
+                  "path": "/items"
+                },
+                "id": "f2d60fe2-66cd-48d2-82d3-bba9279e2c4b",
+                "name": "GET all items",
+                "headers": []
+              }
+            }
+          ]
+        },
+        {
+          "entity": {
+            "type": "Service",
+            "id": "c9afa76e-5f70-4c3d-a954-ff119f34ed91",
             "name": "User service tests"
           },
           "children": [
@@ -44,7 +125,7 @@
                   "host": "localhost:3000",
                   "path": "/users"
                 },
-                "id": "1b14cd95-5903-43a0-8958-870ea49a70a5",
+                "id": "fc9aef48-0bb2-41fc-8325-9b5f833adb59",
                 "name": "0 Create user",
                 "headers": [
                   {
@@ -80,9 +161,9 @@
                     "version": "V11"
                   },
                   "host": "localhost:3000",
-                  "path": "/users/${getEntityById(\"1b14cd95-5903-43a0-8958-870ea49a70a5\").\"response\".\"body\".\"id\"}"
+                  "path": "/users/${getEntityById(\"fc9aef48-0bb2-41fc-8325-9b5f833adb59\").\"response\".\"body\".\"id\"}"
                 },
-                "id": "515d1170-4a2b-4ce2-8ae2-f15e242f4e59",
+                "id": "f9e82c31-50b7-4585-9ad4-8e383f7514a6",
                 "name": "1 Check user",
                 "headers": []
               }
@@ -112,9 +193,9 @@
                     "version": "V11"
                   },
                   "host": "localhost:3000",
-                  "path": "/users/${getEntityById(\"515d1170-4a2b-4ce2-8ae2-f15e242f4e59\").\"response\".\"body\".\"id\"}"
+                  "path": "/users/${getEntityById(\"f9e82c31-50b7-4585-9ad4-8e383f7514a6\").\"response\".\"body\".\"id\"}"
                 },
-                "id": "a045ccca-caca-4ef8-9728-2b20e12e0feb",
+                "id": "68248072-7f24-49bf-8343-248d83baaff9",
                 "name": "2 Delete user",
                 "headers": []
               }
@@ -146,7 +227,7 @@
                   "host": "localhost:3000",
                   "path": "/users"
                 },
-                "id": "0f0a0778-5e5a-41ca-8692-42dd5696fc6c",
+                "id": "f3bf8b77-9abf-4de7-9bb1-3764bb748eb8",
                 "name": "GET all users",
                 "headers": []
               }
